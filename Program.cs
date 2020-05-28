@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Net.Http.Headers;
-using System.Linq;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 
 namespace ShipIt
 {
@@ -52,7 +47,7 @@ namespace ShipIt
                         break;
                     case 5:
                         Console.WriteLine("Shipment manifest:");
-                        printInventory(shipper);
+                        PrintInventory(shipper);
                         Console.WriteLine("Press any key to return to the menu");
                         Console.ReadKey();
                         break;
@@ -82,21 +77,76 @@ namespace ShipIt
             return choice;
         }
 
-        private static void printInventory(Shipper shipper)
+        private static void PrintInventory(Shipper shipper)
         {
-            for (int i = 0; i < shipper.ShoppingList.Count; i++)
+            if(PrintBicycles(shipper) > 1)
             {
-                Console.WriteLine(i + " " + shipper.ShoppingList[i]);
+                Console.WriteLine(PrintBicycles(shipper) + " Bicycles");
+            }
+            else if(PrintBicycles(shipper) > 0)
+            {
+                Console.WriteLine(PrintBicycles(shipper) + " Bicycle");
+            }
+            if(PrintMowers(shipper) > 1)
+            {
+                Console.WriteLine(PrintMowers(shipper) + " Lawn Mowers");
+            }
+            else if(PrintMowers(shipper) > 0)
+            {
+                Console.WriteLine(PrintMowers(shipper) + " Lawn Mower");
+            }
+            if(PrintGloves(shipper) > 1)
+            {
+                Console.WriteLine(PrintGloves(shipper) + " Baseball Gloves");
+            }
+            else if(PrintGloves(shipper) > 0)
+            {
+                Console.WriteLine(PrintGloves(shipper) + " Baseball Glove");
+            }
+            if(PrintCrackers(shipper) > 0)
+            {
+                Console.WriteLine(PrintCrackers(shipper) + " Crackers");
             }
         }
 
-        //private static void printInventory(Shipper shipper)
-        //{
-        //    int bicycleCount = 0;
-        //    foreach (string s in shipper.ShoppingList)
-        //    {
-        //        if (s != null && s.Contains("Bicycle")) bicycleCount++;
-        //    }
-        //}
+        private static int PrintBicycles(Shipper shipper)
+        {
+            int count = 0;
+            foreach (var s in shipper.ShoppingList)
+            {
+                if (s.Product == ("Bicycle")) count++;
+            }
+            return count;
+        }
+
+        private static int PrintMowers(Shipper shipper)
+        {
+            int count = 0;
+            foreach (var s in shipper.ShoppingList)
+            {
+                if (s.Product == ("Lawn Mower")) count++;
+            }
+            return count;
+        }
+
+        private static int PrintGloves(Shipper shipper)
+        {
+            int count = 0;
+            foreach (var s in shipper.ShoppingList)
+            {
+                if (s.Product == ("Baseball Glove")) count++;
+            }
+            return count;
+        }
+
+        private static int PrintCrackers(Shipper shipper)
+        {
+            int count = 0;
+            foreach (var s in shipper.ShoppingList)
+            {
+                if (s.Product == ("Crackers")) count++;
+            }
+            return count;
+        }
     }
 }

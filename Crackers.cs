@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ShipIt
+﻿namespace ShipIt
 {
     class Crackers : IShippable
     {
@@ -13,12 +9,7 @@ namespace ShipIt
 
         public string Product
         {
-            get { return "Cracker"; }
-        }
-
-        override public string ToString()
-        {
-            return Product;
+            get { return "Crackers"; }
         }
     }
 }
