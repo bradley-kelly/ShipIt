@@ -92,16 +92,11 @@ namespace ShipIt
 
         //private static void printInventory(Shipper shipper)
         //{
-        //    shipper.ShoppingList.Where(s => s != null && s.StartsWith("S")).Count();
-        //}
-
-        //private static void printInventory(Shipper shipper)
-        //{
-        //int count = 0;
-        //    foreach (string s in shipper.ShoppingList) 
+        //    int bicycleCount = 0;
+        //    foreach (string s in shipper.ShoppingList)
         //    {
-        //        if (s!=null && s.StartsWith("S")) count++;
+        //        if (s != null && s.Contains("Bicycle")) bicycleCount++;
         //    }
-        //}  
+        //}
     }
 }
